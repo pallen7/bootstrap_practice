@@ -13,18 +13,10 @@ namespace bootstrap_practice.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost]
+        public IActionResult Show(ViewModel view_model)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(view_model);
         }
 
         public IActionResult Error()
