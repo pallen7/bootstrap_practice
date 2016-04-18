@@ -1,4 +1,4 @@
-﻿@model bootstrap_practice.ViewModels.PagingViewModel
+﻿@model bootstrap_practice.ViewModels.PagingRequest
 
 @{
     ViewData["Title"] = "Paging";
@@ -8,18 +8,18 @@
 
 <form asp-controller="Paging" asp-action="Index">
     <div class="form-group">
-        <label for="total_items">Total items:</label>
-        <input id="total_items" name="total_items" class="form-control" />
-    </div>
-    <div class="form-group">
         <label for="items_per_page">Items per page:</label>
         <input id="items_per_page" name="items_per_page" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="page_number">Page number:</label>
+        <input id="page_number" name="page_number" class="form-control" />
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
 @if (Model != null)
 {
-    <p>@Model.total_items</p>
+    <p>@Model.page_number</p>
     <p>@Model.items_per_page</p>
 }

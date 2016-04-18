@@ -1,13 +1,12 @@
-﻿using System;
+﻿using bootstrap_practice.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace bootstrap_practice.ViewModels
 {
     public class PagingViewModel
     {
-        public int total_items { get; set; }
-        public int items_per_page { get; set; }
+        public int current_page { get; set; }
+        public int total_pages { get; set; }
+        public IEnumerable<PagingItem> current_items { get; set; }
     }
 }
