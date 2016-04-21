@@ -1,11 +1,15 @@
 ﻿using bootstrap_practice.Model;
 using bootstrap_practice.ViewModels;
 using Microsoft.AspNet.Mvc;
+using pallen.web.Model.Repository;
 
 namespace bootstrap_practice.Controllers.Paging
 {
     public class PagingController : Controller
     {
+        [FromServices]
+        public Context context { get; set; }
+
         public IActionResult Index()
         {
             return View();
@@ -21,7 +25,8 @@ namespace bootstrap_practice.Controllers.Paging
         {
             var paging_item_handler = new GetPagingItems();
 
-            var view_model = paging_item_handler.build_view_model(paging_request.items_per_page, paging_request.page_number);
+            var view_model = paging_item_handler.build_view_model(paging_request.items_per_page, paging_request.page_number
+                , context);
 
             return View(view_model);
         }
